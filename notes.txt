@@ -15,3 +15,23 @@ module.exports: export one things export: export many things
 
 useNewUrlParser is depreciated
 try mongoose.connect(process.env.MONGODB_URI);
+
+1/21
+
+added .env
+need to convert require to import/export.
+added:type:module already. need syntax for the libraries
+the book i have about node is really beginning to show its age
+
+1/22
+
+I THOUGHT node app.js isnt working.
+It was, it just didnt show anything on the terminal until I added
+console.log(process.env.MONGODB_URI)
+I forget to turn on mongodb! Everything was added there
+
+keep playing around with it
+
+
+the env is the database. the models i am generating, titled and based on schemas, are different collections
+can update multiple things at a time 

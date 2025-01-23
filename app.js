@@ -1,14 +1,18 @@
-const express = require('express')
-const mongoose = require('mongoose')
+//import dotenv from "dotenv/config.js";
+import dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
+dotenv.config();
+console.log(process.env.MONGODB_URI)
 const app = express()
-const port = 3000
-mongoose.connect('mongodb://localhost:27017/testing_database', {useNewUrlParser:true})
-//mongoose is a way to structure the application
+//const port = 3000
+mongoose.connect(process.env.MONGODB_URI)
 const Schema = mongoose.Schema;
 
 const testSchema = new Schema ({
   title: String, body: String
 });
+
 
 
 const Test = new mongoose.model("Test", testSchema)
@@ -19,7 +23,18 @@ body:"You are a Hunter of the Monsters threatening the West. Can you bear the pr
 })
 test1.save()
 
-module.exports = Test
+
+const BabySchema = new Schema({
+  name:String,
+  dob:Number
+})
+const BabyDatabase = new mongoose.model("Baby", BabySchema)
+
+const firstbaby = new BabyDatabase({
+  name:"Nebuchanezzer",
+  dob:'02233123'
+})
+firstbaby.save()
 
 //const {MongoClient} = require('mongodb');
 
